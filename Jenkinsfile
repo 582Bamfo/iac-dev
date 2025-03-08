@@ -28,5 +28,19 @@ pipeline {
                 sh 'terraform apply -auto-approve'
             }
         }
+
+        stage('Destory') {
+            when { 
+                expression { return params.DESTROY == 'true' }
+            }
+            steps {
+                script { 
+                    input message: 'Are you sure you want to destroy the infrastructure?', ok: 'Yes, Destroy'
+                    echo 'Running terraform destroy...'
+                    sh 'terraform destroy -auto-approve'
+                }
+                
+            }
+        }
     }
 }
