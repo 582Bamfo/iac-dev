@@ -43,4 +43,8 @@ pipeline {
             }
         }
     }
+     parameters {
+        // Optional parameter to trigger the destroy stage
+        booleanParam(name: 'DESTROY', defaultValue: false, description: 'Trigger Terraform destroy stage')
+    }
 }
