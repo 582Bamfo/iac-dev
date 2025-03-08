@@ -1,6 +1,6 @@
 variable "name" {
   type = string
-  default = "Thomas"
+  default = "Clonersource"
 }
 
 variable "bucket_name" {
